@@ -9,14 +9,14 @@
 	<meta http-equiv="Pragma" content="no-cache">
 
 	<!-- Bootstrap responsive theme base -->
-	<link href="css/themes/bootstrap-slate.min.css" media="all" rel="stylesheet"/>
+	<link href="<?php echo SITE_URL;?>css/themes/bootstrap-slate.min.css" media="all" rel="stylesheet"/>
 
 	<!-- Responsive layout -->
-	<link href="css/bootstrap-responsive.min.css" media="all" rel="stylesheet"/>
+	<link href="<?php echo SITE_URL;?>css/bootstrap-responsive.min.css" media="all" rel="stylesheet"/>
 
 	<!-- Additional site styles -->
-	<link href="css/bootstrap-ext.css" media="all" rel="stylesheet"/> <!-- For layout -->
-	<link href="css/themes/c2013.css" media="all" rel="stylesheet"/> <!-- Formatting / colours etc -->
+	<link href="<?php echo SITE_URL;?>css/bootstrap-ext.css" media="all" rel="stylesheet"/> <!-- For layout -->
+	<link href="<?php echo SITE_URL;?>css/themes/c2013.css" media="all" rel="stylesheet"/> <!-- Formatting / colours etc -->
 
 	<!-- IE9 Full svg gradient support -->
 	<!--[if gte IE 9]>
@@ -26,10 +26,10 @@
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
-		<script src="js/html5.min.js"></script>
+		<script src="<?php echo SITE_URL;?>js/html5.min.js"></script>
 	<![endif]-->
 
 	<!-- jQuery lib -->
-	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="<?php echo SITE_URL;?>js/jquery-1.9.1.min.js"></script>
 
 

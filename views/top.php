@@ -11,7 +11,7 @@
 		<?php include($root.'/views/top-logo.php'); ?>
 
 		<!-- Message bar -->
-		<?php echo include($root.'/views/message-bar.php');?>
+		<?php include($root.'/views/message-bar.php');?>
 
 		<!-- Templated view area -->
 		<div id="viewarea">

@@ -4,15 +4,17 @@
 		<!-- Greeting first.. -->
 		<h1><?php echo $lang['welcome_title'];?></h1>
 		<div class="alert alert-warning"><h3><?php echo $lang['please_login'];?></h3></div>
-		<form class="login form-horizontal" action="" method="post">
+		<form class="login form-horizontal" action="hotspotlogin.php" method="post">
 
 			<!-- Auth fields -->
 			<input type="hidden" name="isxhr" value="1" />
 			<input type="hidden" name="action" value="login" />
+			<input type="hidden" name="called" value="<?php echo $form['called'];?>" />
 			<input type="hidden" name="challenge" value="<?php echo $form['challenge'];?>" />
 			<input type="hidden" name="uamip" value="<?php echo $form['uamip'];?>" />
 			<input type="hidden" name="uamport" value="<?php echo $form['uamport'];?>" />
 			<input type="hidden" name="userurl" value="<?php echo $form['userurl'];?>" />
+			<input type="hidden" name="res" value="notyet" />
 
 			<div class="control-group">
 				<label class="control-label" for="oad-username"><?php echo $lang['login_email'];?></label>

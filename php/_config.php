@@ -19,6 +19,9 @@
 	define('UAM_SECRET', "C0ns3ga");
 	define('UAM_PWORD', 1);
 
+	// Site URL root
+	define('SITE_URL', 'https://regtest.movieworx.co.uk/hotspotlogin/');
+
 	// Login page navigation list. Leave as an empty array to hide the navigation element
 	global $nav, $postloginurl;
 	$nav = array(
@@ -39,5 +42,13 @@
 		)
 	);
 
-	// Where to redirect to after login - leave FALSE to use local view (views/consumer-hub.php)
-	$postloginurl = 'http://onalldevices.com/bespoke-web-design-development-services';
+	// Where to redirect to after login - either local view (views/consumer-hub.php) or external landing page
+	//$postloginurl = 'http://bbc.co.uk';
+	$postloginurl = 'pages/consumer-hub.php';
+
+	// External URL - used to force a new login session
+	$exturl = 'http://onalldevices.com';
+
+	// Login auth cookie
+	$cookiename     = 'daloauth';
+	$cookieexpire   = (24 * 30 * 24 * 3600); // 1 year. (3600 = 1 hour)

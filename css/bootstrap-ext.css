@@ -39,6 +39,31 @@ body{
     }
 }
 
+/* Banner ads */
+.bannerads{
+    margin-top: 1em;
+}
+.bannerads ul{
+    text-align: center;
+}
+.bannerads li{
+    position: relative;
+    width: 140px;
+    display: inline-block;
+    margin: .3em;
+}
+.bannerads li .bottom-caption{
+    position: absolute;
+    bottom: 0;
+    padding: 5%;
+    background-color: rgba(255, 255, 255, .6);
+    color: #333;
+    text-align: center;
+    width: 90%;
+    font-size: 1.4em;
+    pointer-events: none;
+}
+
 /* Message bar */
 #oad-page-message-bar{
     margin-top: 1em;
@@ -68,11 +93,23 @@ body{
 }
 .userform .control-label,
 .userform .controls select,
-.userform .controls input{
+.userform .controls input,
+.userform span.uneditable-input{
     font-size: 1.4em;
+    text-align: left;
+    text-shadow: none;
+    font-weight: normal;
 }
 .userform .action-controls{
     margin: 0 2em;
+}
+.userform .alert h3{
+    white-space: normal;
+    line-height: 1em;
+}
+#oad-remind-showpassword{
+    text-align: center;
+    font-size: 1.8em;
 }
 
 /* Utilities */

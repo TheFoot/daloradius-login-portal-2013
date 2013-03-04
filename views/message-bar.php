@@ -1,4 +1,3 @@
-<!-- Message bar template -->
 <?php
 	// Grab flash messages
 	$alert = false; $error = false;

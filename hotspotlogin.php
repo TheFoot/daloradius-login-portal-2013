@@ -3,7 +3,8 @@
 	/**
 	 * This is the central script for processing all authentication activity
 	 *
-	 * It is called on first page load, then via ajax for subsequent requests
+	 * It is called on first page load, and on auth callbacks
+	 * It is also called via ajax for subsequent non-auth requests
 	 *
 	 * @copyright 2013 Bluepod Media Ltd
 	 * @author Barry Jones <barry@onalldevices.com>
@@ -18,6 +19,7 @@
 	$form = array();
 	$isxhr                  = $utils->getRequestVar('isxhr');
 	$form['action']         = $utils->getRequestVar('action');
+	$form['called']         = $utils->getRequestVar('called');
 	$form['callback']       = $utils->getRequestVar('callback');
 	$form['username']       = $utils->getRequestVar('username');
 	$form['password']       = $utils->getRequestVar('password');
@@ -70,10 +72,22 @@
 		exit(0);
 	}
 
+	// Clean form inputs
+	array_map(array($db, 'escape'), $form);
+
 	// Process auth actions
 	switch ($result){
 		case 1: // Successful login
-			$utils->redirect('http://onalldevices.com');
+
+			// Store login cookie
+			setcookie(
+				$cookiename,
+				json_encode($_SESSION['daloauth']),
+				(time() + $cookieexpire),
+				'/'
+			);
+
+			$utils->redirect($postloginurl);
 			break;
 
 		case 2: // Unsuccessful login
@@ -81,38 +95,57 @@
 			buildView();
 			break;
 
-		case 3: // Logout
-			buildView();
+		case 3: // Logout and clear auth cookie
+			setcookie(
+				$cookiename,
+				json_encode($_SESSION['daloauth']),
+				(time() - 10),
+				'/'
+			);
+			$utils->redirect($exturl);
 			break;
 
 		case 4: // Already logged in
 		case 12:
-			$utils->redirect('http://onalldevices.com');
+			$utils->redirect($postloginurl);
 			break;
 
 		case 5: // Nothing tried yet
-			// Process standard form action
+
+			// Process standard form actions
 			switch ($form['action']){
 				case 'login':
-
-					// Get PAP data
-					$papdata = getPapDetails($form['challenge'], $form['password']);
-
-					// Create auth url
-					if (UAM_SECRET && UAM_PWORD) {
-						$authurl = 'http://'.$form['uamip'].':'.
-							$form['uamport'].'/logon?username='.$form['username'].
-							'&password='.$papdata['password'];
-					} else {
-						$authurl = 'http://'.$form['uamip'].':'.
-							$form['uamport'].'/logon?username='.$form['username'].
-							'&response='.$papdata['response'].'&userurl='.$form['userurl'];
-					}
-
-					// Redirect to auth URL
-					$utils->redirect($authurl);
-
+					doLogin($form);
 					break;
+
+				case "register":
+					registerNewUser();
+					break;
+
+				case "getsecurityquestion":
+					$question = getSecurityQuestion($form['username']);
+					if ($question === false){
+						sendJSONError($lang['forgot_password_no_question']);
+					} else {
+						sendJSONResponse(array(
+							"question"  => $question
+						));
+					}
+					break;
+
+				case "fetchpassword":
+					$form['answer'] = $utils->getRequestVar('answer');
+					$form['answer'] = $db->escape($form['answer']);
+					$answer = getPassword($form['username'], $form['answer']);
+					if ($answer === false){
+						sendJSONError($lang['forgot_password_invalid_answer']);
+					} else {
+						sendJSONResponse(array(
+							"password"  => $answer
+						));
+					}
+					break;
+
 				default:
 				    buildView();
 			}

@@ -57,11 +57,3 @@ $configValues['CONFIG_SIGNUP_SUCCESS_MSG_LOGIN_LINK'] = "<br/>Click <b><a href='
 $configValues['CONFIG_SIGNUP_FAILURE_MSG_FIELDS'] = "You didn't fill in your first and last name, please fill-in the form again";
 $configValues['CONFIG_SIGNUP_FAILURE_MSG_CAPTCHA'] = "The image verification code is in-correct, please try again";
 
-
-//$configValues['CONFIG_GROUP_NAME'] = "regtest";       /* the group name to add the user to */
-$configValues['CONFIG_GROUP_PRIORITY'] = 0;             /* an integer only! */
-$configValues['CONFIG_USERNAME_PREFIX'] = "REG_";	/* username prefix to append to the automatically generated username */
-$configValues['CONFIG_USERNAME_LENGTH'] = "4";		/* the length of the random username to generate */
-$configValues['CONFIG_PASSWORD_LENGTH'] = "4";		/* the length of the random password to generate */
-
-?>

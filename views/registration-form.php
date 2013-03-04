@@ -4,7 +4,12 @@
 		<!-- Greeting first.. -->
 		<h1><?php echo $lang['welcome_title'];?></h1>
 		<div class="alert alert-warning"><h3><?php echo $lang['please_register'];?></h3></div>
-		<form class="registration form-horizontal" action="" method="post">
+		<form class="registration form-horizontal" action="hotspotlogin.php" method="post">
+
+			<input type="hidden" name="isxhr" value="1" />
+			<input type="hidden" name="action" value="register" />
+			<input type="hidden" name="res" value="notyet" />
+
 			<div class="control-group">
 				<label class="control-label" for="oad-firstname">
 					<span class="required">*</span>
