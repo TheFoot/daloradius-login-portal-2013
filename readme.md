@@ -30,7 +30,7 @@ The following libraries are included:
 
 The following plug-ins and shims are also included:
 
-* HTML5 Shim (For making older IE understand HTMl5 tags)
+* HTML5 Shim (For making older IE understand HTML5 tags)
 * jQuery Cookie Plugin (For storing the auth info for auto-login)
 
 The file `/js/app.js` is the application main file. It creates the global namespace "consega" which contains all functionality pertaining to this app.
@@ -38,7 +38,7 @@ The file `/js/app.js` is the application main file. It creates the global namesp
 Languages
 -------------------
 
-All scripts and templates are language-tagged. The only currently available language is English, and the language files can be found in `/lang/`;
+All scripts and templates are language-tagged. The only currently available language is English, and the language files can be found in `/lang/`.
 
 To create a new language, simply make a copy of the `/lang/en.php` file, translate it and save it using the 2-level ISO country code, e.g. `/lang/fr.php`. You will then need to set the `LANG` constant in the configuration file.
 
