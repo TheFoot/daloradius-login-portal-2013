@@ -53,5 +53,4 @@ Support
 If you need any more help, my contact details are:
 
 * Email: barry@onalldevices.com
-* Tel: 07887 513256
-* Skype: thefootonline
+
