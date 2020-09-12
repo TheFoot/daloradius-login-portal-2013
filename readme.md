@@ -47,10 +47,4 @@ Creating additional locally-hosted pages
 
 In order to create arbitrary pages under the same structure, it is recommended to store the page in the `/pages/` folder. `/pages/consumer-hub.php` is an example of how to tie a separate page into the app theme.
 
-Support
---------------------
-
-If you need any more help, my contact details are:
-
-* Email: barry@onalldevices.com
 
